@@ -10,8 +10,8 @@
                 value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.url"
                 value="jdbc:postgresql://localhost/uber_db"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
-      <property name="javax.persistence.jdbc.password" value="postgres"/>
+      <property name="javax.persistence.jdbc.user" value="superadmin"/>
+      <property name="javax.persistence.jdbc.password" value="password1"/>
 
       <property name="hibernate.dialect"
                 value="org.hibernate.dialect.PostgreSQL82Dialect"/>

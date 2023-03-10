@@ -31,7 +31,7 @@ public class UberApi {
         EntityManager em = emf.createEntityManager();
 
         UberDriver driver = em.createQuery("SELECT d FROM uberdriver d WHERE NOT EXISTS"
-                        +"SELECT b FROM booking b WHERE b.driver = d AND b.endbooking > :currentTimestamp"
+                        +" SELECT b FROM booking b WHERE b.driver = d AND b.endbooking > :currentTimestamp"
                         , UberDriver.class)
                 .getSingleResult();
 
