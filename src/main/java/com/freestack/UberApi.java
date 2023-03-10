@@ -83,8 +83,8 @@ public class UberApi {
         EntityManagerFactory emf = EntityManagerFactorySingleton.getInstance();
         EntityManager em = emf.createEntityManager();
 
-        List<Booking> bookings = em.createQuery("SELECT b FROM Booking b WHERE b.driver = :driver", Booking.class)
-                .setParameter("driver", driver)
+        List<Booking> bookings = em.createQuery("SELECT b FROM booking b WHERE b.driver_id = :driver_id", Booking.class)
+                .setParameter("driver_id", driver)
                 .getResultList();
 
         em.close();
@@ -95,8 +95,8 @@ public class UberApi {
         EntityManagerFactory emf = EntityManagerFactorySingleton.getInstance();
         EntityManager em = emf.createEntityManager();
 
-        List<Booking> bookings = em.createQuery("SELECT b FROM booking WHERE b.driver = :driver", Booking.class)
-                .setParameter("driver", driver)
+        List<Booking> bookings = em.createQuery("SELECT b FROM booking WHERE b.driver_id = :driver_id", Booking.class)
+                .setParameter("driver_id", driver)
                 .getResultList();
 
         em.close();
@@ -123,7 +123,7 @@ public class UberApi {
         EntityManagerFactory emf = EntityManagerFactorySingleton.getInstance();
         EntityManager em = emf.createEntityManager();
 
-        List<Object[]> listScoreAndUser = em.createQuery("SELECT b.user, SUM(b.score) FROM booking b GROUP BY b.user", Object[].class)
+        List<Object[]> listScoreAndUser = em.createQuery("SELECT b.uberuser, SUM(b.evaluation) FROM booking b GROUP BY b.uberuser", Object[].class)
                 .getResultList();
 
         for (Object[] obj : listScoreAndUser) {
